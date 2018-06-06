@@ -1,0 +1,27 @@
+body {
+    background-image: url("../images/background-image1.png");
+    opacity: 0.9;
+}
+
+#instructions {
+    background-color: white;
+    opacity: 0.9;
+}
+
+header {
+    background-color: rgb(34, 136, 177);
+    padding-bottom: 1px;
+    color: whitesmoke;
+}
+
+.trackerStyle {
+    background-color: white;
+    border: 2px solid black;
+    height: 80px;
+}
+
+.scoreStyle {
+    background-color: white;
+    border: 2px solid black;
+    height: 80px;
+}

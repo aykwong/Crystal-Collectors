@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Crystal Collectors</title>
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
@@ -14,41 +14,63 @@
 </head>
 
 <body>
-    <header>
-        <h1 id="title">Crystals Collector!</h1>
+    <header >
+        <div class="container">
+            <h1 class="col-12 text-center" id="title">Crystals Collector!</h1>
+        </div>
     </header>
 
-    <section class="instructions">
-        <p>You will be given a random number at the start of the game.</p>
-        <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
-        <p>You win the game by matching your total score to random number, you lose the game if your total score goes above
-            the random number.</p>
-        <p>The value of each crystal is hidden from you until you click on it.</p>
-        <p>Each time whne tht egame starts, the game will change the values of each crystal.</p>
-    </section>
+    <div class="container">
+        <section class="row" id="instructions">
+            <p class="col-12 blockquote text-center">You will be given a random number at the start of the game.</p>
+            <p class="col-12 blockquote text-center">There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total
+                score.
+            </p>
+            <p class="col-12 blockquote text-center">You win the game by matching your total score to random number, you lose the game if your total score goes above
+                the random number.</p>
+            <p class="col-12 blockquote text-center">The value of each crystal is hidden from you until you click on it.</p>
+            <p class="col-12 blockquote text-center">Each time when the game starts, the game will change the values of each crystal.</p>
+        </section>
 
-    <div class="numberTracker">
-        <div span="target">target</div>
-        <div span="userScore">userScore</div>
+        <div class="row mt-3" id="numberTracker">
+            <div class="col-2"></div>
+            <div class="col-4 text-center trackerStyle">Target:
+                <span id="target"></span>
+            </div>
+            <div class="col-4 text-center trackerStyle">userTotalScore:
+                <span id="userTotalScore"></span>
+            </div>
+            <div class="col-2"></div>
+        </div>
+
+        <div class="row d-flex justify-content-center my-3" id="crystals">
+            <button class="mx-2" id="Ruby">
+                <img src="assets/images/ruby.png" alt="Ruby">
+            </button>
+            <button class="mx-2" id="Sapphire">
+                <img src="assets/images/sapphire.png" alt="Sapphire">
+            </button>
+            <button class="mx-2" id="Topaz">
+                <img src="assets/images/topaz.png" alt="Topaz">
+            </button>
+            <button class="mx-2" id="Emerald">
+                <img src="assets/images/emerald.png" alt="Emerald">
+            </button>
+        </div>
+
+        <div class="row" id="score">
+            <div class="col-2"></div>
+            <p class="col-4 text-center scoreStyle">Wins:
+                <span id="wins"></span>
+            </p>
+            <p class="col-4 text-center scoreStyle">Losses:
+                <span id="losses"></span>
+            </p>
+            <div class="col-2"></div>
+        </div>
+
+        <script src="assets/javascript/game.js"></script>
     </div>
-
-    <div class="crystals">
-        <img src="assets/images/" alt="Ruby">
-        <img src="assets/images/" alt="Sapphire">
-        <img src="assets/images/" alt="Topaz">
-        <img src="assets/images/" alt="Emerald">
-    </div>
-
-    <div class="score">
-        <p>Wins:
-            <span id="wins"></span>
-        </p>
-        <p>Losses:
-            <span id="losses"></span>
-        </p>
-    </div>
-
-    <script src="assets/javascript/game.js"></script>
 </body>
 
 </html>
