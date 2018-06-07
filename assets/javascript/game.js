@@ -32,20 +32,19 @@ $("#wins").html(score.wins);
 $("#losses").html(score.losses);
 
 $("#crystals").on("click", ".img-jewels", function() {
-    //Randomize and Assign values to the jewels
+    
+    //Reset, randomize, and assign values to the jewels
     if(counter.reset === 1) {
-        var buttonValue = $('#crystals img').each(function() {
-            var i = 0;
-            $(buttons.jewels[i]).val(buttons.generator());
-            console.log($(buttons.jewels[i]).val());
+        counter.reset = 0;
+        var i = 0;
+        $('#crystals img').each(function() {
+            $(buttons.jewels[i]).data("crystalValue", buttons.generator());
             i++;
-            counter.reset = 0;
         });
-    }
+    };
 
-    tracker.userScore = tracker.userScore + parseInt($(this).val());
+    tracker.userScore += $(this).data("crystalValue");
     $("#userTotalScore").html(tracker.userScore);
-    // console.log(tracker.userScore);
 
     //Determine if the user has satisfied win or loss condition
     if(tracker.userScore === tracker.target) {
@@ -56,7 +55,7 @@ $("#crystals").on("click", ".img-jewels", function() {
     } else if(tracker.userScore > tracker.target) {
         alert("You Lose. Try again next time");
         score.losses++;
-        $("losses").html(score.losses);
+        $("#losses").html(score.losses);
         counter.reset = 1;
     }
 
