@@ -16,7 +16,13 @@ var buttons = {
 
 var score = {
     wins: 0,
-    losses: 0
+    losses: 0,
+    winAlert: function () {
+        alert("You Win!");
+    },
+    loseAlert: function () {
+        alert("You Lose. Try again next time");
+    }
 };
 
 var counter = {
@@ -31,13 +37,13 @@ $("#userTotalScore").html(tracker.userScore);
 $("#wins").html(score.wins);
 $("#losses").html(score.losses);
 
-$("#crystals").on("click", ".img-jewels", function() {
-    
+$("#crystals").on("click", ".img-jewels", function () {
+
     //Reset, randomize, and assign values to the jewels
-    if(counter.reset === 1) {
+    if (counter.reset === 1) {
         counter.reset = 0;
         var i = 0;
-        $('#crystals img').each(function() {
+        $('#crystals img').each(function () {
             $(buttons.jewels[i]).data("crystalValue", buttons.generator());
             i++;
         });
@@ -47,20 +53,20 @@ $("#crystals").on("click", ".img-jewels", function() {
     $("#userTotalScore").html(tracker.userScore);
 
     //Determine if the user has satisfied win or loss condition
-    if(tracker.userScore === tracker.target) {
-        alert("You Win!");
+    if (tracker.userScore === tracker.target) {
         score.wins++;
         $("#wins").html(score.wins);
+        score.winAlert();
         counter.reset = 1;
-    } else if(tracker.userScore > tracker.target) {
-        alert("You Lose. Try again next time");
+    } else if (tracker.userScore > tracker.target) {
         score.losses++;
-        $("#losses").html(score.losses);
+        $("#losses").html(score.losses)
+        score.loseAlert();
         counter.reset = 1;
     }
 
     //Resetting the values and target, jewel values will be reset in the beginning when the game is replayed
-    if(counter.reset === 1) {
+    if (counter.reset === 1) {
         tracker.target = tracker.generator();
         $("#target").html(tracker.target);
         tracker.userScore = 0;

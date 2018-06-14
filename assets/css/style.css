@@ -1,5 +1,6 @@
 body {
     background-image: url("../images/background-image1.png");
+    background-repeat: repeat;
     opacity: 0.9;
 }
 
@@ -18,10 +19,25 @@ header {
     background-color: white;
     border: 2px solid black;
     height: 80px;
+    font-size: 1.2em;
+}
+
+.trackerStyle > p {
+    font-size: 1.5em;
 }
 
 .scoreStyle {
     background-color: white;
     border: 2px solid black;
     height: 80px;
+    font-size: 1.2em;
+}
+
+.scoreStyle > p {
+    font-size: 1.5em;
+}
+
+img {
+    width: 105px;
+    height: 105px;
 }
